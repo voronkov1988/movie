@@ -1,0 +1,60 @@
+#root {
+  font-family: 'Inter', sans-serif;
+}
+
+.ant-pagination-item-active {
+  background-color: #1890FF;
+  border-radius: 4px;
+}
+
+.ant-pagination-item-active a {
+  color: #fff;
+}
+
+.ant-tabs-top > .ant-tabs-nav::before {
+  width: 130px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.example {
+  width: 100vw;
+  height: 100vh;
+}
+
+.input-search {
+  margin-bottom: 34px;
+}
+
+.card-list {
+  margin-bottom: 36px;
+}
+
+.pagination {
+  margin: 36px auto 17px;
+  text-align: center;
+}
+
+.layout {
+  background-color: #E5E5E5;
+}
+
+@media (max-width: 1025px) {
+  .ant-layout-content{
+    width: 100vw;
+    justify-content: space-between;
+    padding: 20px 16px;
+    background-color: #fff;
+  }
+  .space {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1026px) {
+  .ant-layout-content{
+     max-width: 1010px;
+     margin: auto;
+     padding: 21px 32px;
+     background-color: #fff;
+  }
+}

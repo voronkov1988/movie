@@ -1,0 +1,10 @@
+.empty {
+  width: 1010px;
+  height: 90vh;
+  font-size: 20px;
+}
+
+.space {
+  width: 100%;
+  flex-wrap: wrap;
+}
