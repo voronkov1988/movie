@@ -2,9 +2,9 @@ import { Component } from 'react';
 import { Layout, Alert, Tabs } from 'antd';
 import { debounce } from 'lodash';
 
-import ServicesMovie from '../../servicesMovie';
-import tabSearch from '../../helpers/tabSearch';
-import tabRated from '../../helpers/tabRated';
+import ServicesMovie from '../../servicesMovie/ServicesMovie';
+import tabSearch from '../../helpers/TabSearch';
+import tabRated from '../../helpers/TabRated';
 import './App.css';
 
 export default class App extends Component {

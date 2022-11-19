@@ -4,10 +4,9 @@ import { format } from 'date-fns';
 import PropTypes from 'prop-types';
 
 import Tags from '../Tags';
-import Services from '../../servicesMovie';
+import Services from '../../servicesMovie/ServicesMovie';
 import cutDescription from '../../helpers/cutDescription';
-
-import Noimage from './noimage.jpeg';
+import Noimage from '../../assets/image/noimage.jpeg';
 
 import './CardMovie.css';
 

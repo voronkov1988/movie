@@ -6,8 +6,8 @@ import './CardList.css';
 
 const CardList = ({ cards, genres, guestSession }) => {
   CardList.defaultProps = {
-    cards: [{}],
-    genres: [{}],
+    cards: [],
+    genres: [],
     guestSession: '',
   };
 
