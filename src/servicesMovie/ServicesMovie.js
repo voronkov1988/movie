@@ -1,3 +1,5 @@
+const API_KEY = '23450e0ebc597819c66d660c4fd8443a';
+
 export default class ServicesMovie {
   async getServices(url, obj = null) {
     const res = await fetch(url, obj);
@@ -10,21 +12,21 @@ export default class ServicesMovie {
 
   async getMovieServices(text, page) {
     const res = await this.getServices(
-      `https://api.themoviedb.org/3/search/movie?api_key=23450e0ebc597819c66d660c4fd8443a&language=en-US&query=${text}&page=${page}`
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${text}&page=${page}`
     );
     return res;
   }
 
   async guestSession() {
     const res = await this.getServices(
-      'https://api.themoviedb.org/3/authentication/guest_session/new?api_key=23450e0ebc597819c66d660c4fd8443a'
+      `https://api.themoviedb.org/3/authentication/guest_session/new?api_key=${API_KEY}`
     );
     return res;
   }
 
   async getGenres() {
     const res = await this.getServices(
-      'https://api.themoviedb.org/3/genre/movie/list?api_key=23450e0ebc597819c66d660c4fd8443a&language=en-US'
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`
     );
     return res.genres;
   }
@@ -40,7 +42,7 @@ export default class ServicesMovie {
       body: raw,
     };
     const res = await this.getServices(
-      `https://api.themoviedb.org/3/movie/${id}/rating?api_key=23450e0ebc597819c66d660c4fd8443a&guest_session_id=${key}`,
+      `https://api.themoviedb.org/3/movie/${id}/rating?api_key=${API_KEY}&guest_session_id=${key}`,
       requestOptions
     );
 
@@ -50,9 +52,8 @@ export default class ServicesMovie {
 
   async getMyRate(key, page) {
     const res = await this.getServices(
-      `https://api.themoviedb.org/3/guest_session/${key}/rated/movies?api_key=23450e0ebc597819c66d660c4fd8443a&language=en-US&sort_by=created_at.asc&page=${page}`
+      `https://api.themoviedb.org/3/guest_session/${key}/rated/movies?api_key=${API_KEY}&language=en-US&sort_by=created_at.asc&page=${page}`
     );
-    console.log(res);
     return res;
   }
 }
