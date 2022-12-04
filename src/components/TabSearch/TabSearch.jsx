@@ -1,7 +1,7 @@
 import { Input, Pagination } from 'antd';
 
-import CardList from '../components/CardsList';
-import Loader from '../components/Loader';
+import CardList from '../CardsList';
+import Loader from '../Loader';
 
 const tabSearch = (
   isLoaded,
