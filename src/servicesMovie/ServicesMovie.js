@@ -58,6 +58,7 @@ export default class ServicesMovie {
   }
 
   async getMyRate(key, page) {
+    console.log(key, page, API_KEY);
     const res = await this.getServices(
       `https://api.themoviedb.org/3/guest_session/${key}/rated/movies?api_key=${API_KEY}&language=en-US&sort_by=created_at.asc&page=${page}`
     );

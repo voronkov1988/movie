@@ -3,11 +3,10 @@ import { Pagination } from 'antd';
 import CardList from '../CardsList';
 import Loader from '../Loader';
 
-const tabRated = (isLoadedRate, myRateMovie, genres, guestSession, rateTotalPages, ratePageSize, getData) => {
+const tabRated = (isLoadedRate, myRateMovie, genres, guestSession, rateTotalPages, ratePageSize, getRatedMovie) => {
   if (!isLoadedRate) {
     return <Loader />;
   }
-
   return (
     <>
       <CardList className="card-list" cards={myRateMovie} genres={genres} guestSession={guestSession} />
@@ -19,8 +18,8 @@ const tabRated = (isLoadedRate, myRateMovie, genres, guestSession, rateTotalPage
         defaultCurrent={1}
         showSizeChanger={false}
         hideOnSinglePage
-        onChange={() => {
-          getData();
+        onChange={(page) => {
+          getRatedMovie(guestSession, page);
         }}
       />
     </>

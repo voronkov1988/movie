@@ -36,7 +36,6 @@ const tabSearch = (
         size="small"
         total={totalPages}
         defaultCurrent={1}
-        sevSearch
         showSizeChanger={false}
         hideOnSinglePage
         onChange={(page) => {
