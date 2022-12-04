@@ -12,11 +12,21 @@ const tabSearch = (
   totalPages,
   sevSearch,
   onChangeSearch,
+  getData,
   movieService
 ) => {
   if (!isLoaded) {
     return <Loader />;
   }
+
+  function getMovie(page) {
+    if (sevSearch !== '' && sevSearch !== undefined) {
+      movieService(sevSearch, page);
+    } else {
+      getData(page);
+    }
+  }
+
   return (
     <>
       <Input className="input-search" onChange={onChangeSearch} placeholder="Type to search..." value={search} />
@@ -26,10 +36,11 @@ const tabSearch = (
         size="small"
         total={totalPages}
         defaultCurrent={1}
+        sevSearch
         showSizeChanger={false}
         hideOnSinglePage
         onChange={(page) => {
-          movieService(sevSearch, page);
+          getMovie(page);
         }}
       />
     </>

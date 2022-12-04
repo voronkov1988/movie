@@ -1,5 +1,4 @@
 const API_KEY = '23450e0ebc597819c66d660c4fd8443a';
-
 export default class ServicesMovie {
   async getServices(url, obj = null) {
     const res = await fetch(url, obj);
@@ -14,6 +13,14 @@ export default class ServicesMovie {
     const res = await this.getServices(
       `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${text}&page=${page}`
     );
+    return res;
+  }
+
+  async GetDataApi(page) {
+    const res = await this.getServices(
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=ru&page=${page}`
+    );
+    // console.log(res);
     return res;
   }
 

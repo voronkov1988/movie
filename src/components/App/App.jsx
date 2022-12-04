@@ -19,7 +19,7 @@ export default class App extends Component {
       cards: [],
       isLoaded: false,
       search: '',
-      sevSearch: 'return',
+      // sevSearch: 'return',
       totalPages: null,
       error: null,
       genres: null,
@@ -32,12 +32,31 @@ export default class App extends Component {
     this.onChangeSearch = this.onChangeSearch.bind(this);
     this.movieService = this.movieService.bind(this);
     this.getRatedMovie = this.getRatedMovie.bind(this);
+    this.getData = this.getData.bind(this);
   }
 
   componentDidMount() {
     this.getGenres();
     this.getGuest();
-    this.movieService('return');
+    this.getData();
+  }
+
+  async getData(page = 1) {
+    try {
+      const resultObj = await this.services.GetDataApi(page);
+
+      this.setState({
+        cards: resultObj.results,
+        isLoaded: true,
+        totalPages: resultObj.total_pages,
+      });
+    } catch (err) {
+      this.setState({
+        isLoaded: true,
+        error: err,
+      });
+      throw new Error(err);
+    }
   }
 
   onChangeSearch = (e) => {
@@ -45,7 +64,11 @@ export default class App extends Component {
       search: e.target.value,
       sevSearch: e.target.value,
     });
-    this.debounceMovieService(this.state.search);
+    if (e.target.value === '') {
+      this.getData();
+    } else {
+      this.debounceMovieService(e.target.value);
+    }
   };
 
   async getGuest() {
@@ -159,6 +182,7 @@ export default class App extends Component {
                   totalPages,
                   sevSearch,
                   this.onChangeSearch,
+                  this.getData,
                   this.movieService
                 ),
               },
